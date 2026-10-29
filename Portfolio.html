@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surani Nikulbhai M. | Personal Portfolio</title>
+  <meta name="description" content="Personal portfolio of Surani Nikulbhai M. - Full-Stack Developer specializing in MERN Stack, PHP, Java, and Database Management.">
+  <meta property="og:title" content="Surani Nikulbhai M. | Personal Portfolio">
+  <meta property="og:description" content="Explore responsive projects including Blood Bank, Library Management (MERN), and Hotel Management (PHP/MySQL).">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================================
+       Personal Portfolio Website - Surani Nikulbhai M.
+       Single-Page All-In-One Responsive CSS (No Frameworks)
+       ======================================================== */
+    :root {
+      --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --bg-canvas: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      
+      --accent: #0284c7;
+      --accent-hover: #0369a1;
+      --accent-soft: #e0f2fe;
+      
+      --border-color: #e2e8f0;
+      --border-light: #f1f5f9;
+      
+      --success: #16a34a;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: var(--font-main);
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button, input, textarea, select {
+      font-family: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-header {
+      margin-bottom: 40px;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      line-height: 1.6;
+    }
+
+    /* Header & Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .header-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand-wordmark {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .brand-wordmark:hover {
+      color: var(--accent);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      padding: 4px 0;
+      position: relative;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--text-primary);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .btn-primary-nav {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--text-primary);
+      color: #ffffff;
+      padding: 8px 18px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+
+    .btn-primary-nav:hover {
+      background-color: var(--accent);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .hamburger-line {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background-color: var(--text-primary);
+      margin: 4px 0;
+      transition: var(--transition);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 72px 0 60px;
+      background: linear-gradient(180deg, #ffffff 0%, var(--bg-canvas) 100%);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 28px;
+      max-width: 620px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background-color: #ffffff;
+      color: var(--text-primary);
+      border-color: var(--border-color);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--bg-subtle);
+      border-color: #cbd5e1;
+    }
+
+    .hero-metadata {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .meta-dot {
+      color: #cbd5e1;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 12px;
+      box-shadow: var(--shadow-md);
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    .hero-portrait {
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      object-fit: cover;
+      object-position: top;
+      border-radius: var(--radius-md);
+      background-color: var(--bg-subtle);
+    }
+
+    .hero-card-meta {
+      padding-top: 12px;
+      padding-left: 4px;
+      padding-right: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-card-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .hero-card-status {
+      font-size: 0.8rem;
+      color: var(--success);
+      font-weight: 600;
+    }
+
+    .kpi-strip {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-color);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .kpi-card {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+
+    .kpi-number {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 4px;
+    }
+
+    .kpi-label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* About Section */
+    .about-section {
+      background-color: #ffffff;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 36px;
+    }
+
+    .card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+
+    .prose p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .prose p:last-child {
+      margin-bottom: 0;
+    }
+
+    .journey-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .journey-list li {
+      padding-left: 20px;
+      position: relative;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .journey-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .journey-list strong {
+      color: var(--text-primary);
+    }
+
+    .principles-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .principle-item {
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 16px;
+    }
+
+    .principle-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .principle-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .principle-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Skills Section */
+    .skills-section {
+      background-color: var(--bg-canvas);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+
+    .skill-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .skill-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .skill-level {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .skill-desc {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+
+    .skill-concepts-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .skill-concepts-unboxed {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .career-banner {
+      margin-top: 48px;
+      background-color: var(--text-primary);
+      color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 36px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .career-banner-kicker {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .career-banner h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .career-banner p {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      max-width: 600px;
+    }
+
+    .career-banner-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+    /* Projects Section */
+    .projects-section {
+      background-color: #ffffff;
+    }
+
+    .projects-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .project-item {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .project-item:hover {
+      border-color: #cbd5e1;
+    }
+
+    .project-top-bar {
+      padding: 24px 32px;
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .project-index {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 2px;
+    }
+
+    .project-heading {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .responsive-pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #075985;
+      background-color: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+
+    .project-body-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
+      padding: 32px;
+      align-items: start;
+    }
+
+    .project-image-box {
+      background-color: #0f172a;
+      border-radius: var(--radius-md);
+      padding: 8px;
+      border: 1px solid #1e293b;
+      box-shadow: var(--shadow-md);
+    }
+
+    .browser-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 12px;
+      background-color: #1e293b;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      font-size: 0.75rem;
+      color: #94a3b8;
+      font-family: var(--font-mono);
+    }
+
+    .browser-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .browser-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot-red { background-color: #ef4444; }
+    .dot-yellow { background-color: #f59e0b; }
+    .dot-green { background-color: #10b981; }
+
+    .project-img {
+      aspect-ratio: 4 / 3;
+      width: 100%;
+      object-fit: cover;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+
+    .project-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .project-desc {
+      font-size: 0.98rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .features-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .features-list li {
+      padding-left: 18px;
+      position: relative;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+    }
+
+    .features-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--success);
+      font-weight: bold;
+    }
+
+    .project-architecture {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .project-architecture strong {
+      color: var(--text-primary);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .project-tags-unboxed {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background-color: var(--bg-canvas);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 36px;
+    }
+
+    .contact-details-box {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-intro {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .info-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .info-value {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .info-value a {
+      color: var(--accent);
+    }
+
+    .info-value a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-cta-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .contact-form-box {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      background-color: #ffffff;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-status {
+      font-size: 0.9rem;
+      font-weight: 600;
+      min-height: 20px;
+    }
+
+    .form-status.success {
+      color: var(--success);
+    }
+
+    .form-status.error {
+      color: #dc2626;
+    }
+
+    /* Footer */
+    .site-footer {
+      margin-top: auto;
+      background-color: #ffffff;
+      border-top: 1px solid var(--border-color);
+      padding: 32px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Responsive Media Queries */
+    @media (max-width: 992px) {
+      .hero-grid, .about-grid, .project-body-grid, .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .kpi-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .career-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        border-bottom: 1px solid var(--border-color);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        gap: 16px;
+        box-shadow: var(--shadow-md);
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .nav-link {
+        width: 100%;
+        padding: 8px 0;
+      }
+
+      .header-actions .btn-primary-nav {
+        display: none;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .section {
+        padding: 56px 0;
+      }
+
+      .kpi-strip {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .project-top-bar {
+        padding: 18px 20px;
+      }
+
+      .project-body-grid {
+        padding: 20px;
+      }
+
+      .card, .contact-details-box, .contact-form-box {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.85rem;
+      }
+      
+      .kpi-strip {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="#hero" class="brand-wordmark">Surani Nikulbhai M.</a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#about" class="nav-link">About Me</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#contact" class="btn-primary-nav">
+          Get In Touch
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-text-col">
+            <p class="hero-kicker">Full-Stack Web Developer & Software Engineer</p>
+            <h1 class="hero-title">
+              Hi, I'm <span>Surani Nikulbhai M.</span>
+            </h1>
+            <p class="hero-desc">
+              Passionate software engineer building robust, responsive web solutions with clean code, scalable database architectures, and intuitive user experiences.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">Explore Projects &darr;</a>
+              <a href="#contact" class="btn btn-outline">Get In Touch &rarr;</a>
+              <a href="tel:8780826262" class="btn btn-outline">Call: 8780826262</a>
+            </div>
+
+            <div class="hero-metadata">
+              <span>Thordi, Bhavnagar, Gujarat</span>
+              <span class="meta-dot">·</span>
+              <a href="tel:8780826262">+91 8780826262</a>
+              <span class="meta-dot">·</span>
+              <a href="mailto:nikul4470@gmail.com">nikul4470@gmail.com</a>
+              <span class="meta-dot">·</span>
+              <span style="color: var(--success); font-weight: 700;">Open for Opportunities</span>
+            </div>
+          </div>
+
+          <div class="hero-image-col">
+            <div class="hero-image-wrap">
+              <img
+                src="photo.png"
+                alt="Portrait of Surani Nikulbhai M."
+                class="hero-portrait"
+                loading="eager"
+              >
+              <div class="hero-card-meta">
+                <div>
+                  <p class="hero-card-name">Surani Nikulbhai M.</p>
+                  <p style="font-size: 0.8rem; color: var(--text-muted);">Software Developer</p>
+                </div>
+                <span class="hero-card-status">● Available for Hire</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI Strip -->
+        <div class="kpi-strip">
+          <div class="kpi-card">
+            <span class="kpi-number">100%</span>
+            <span class="kpi-label">Mobile Responsive</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-number">3 Major</span>
+            <span class="kpi-label">Full-Stack Projects</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-number">MERN + PHP</span>
+            <span class="kpi-label">Java & Database Eng.</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-number">Clean Code</span>
+            <span class="kpi-label">Production Standards</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Professional Journey & Philosophy</p>
+          <h2 class="section-title">About Me</h2>
+          <p class="section-desc">
+            A comprehensive overview of my professional development background, technical craftsmanship, and architectural principles.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card prose">
+            <h3 class="card-title">My Professional Journey</h3>
+            <p>
+              My path in software engineering began with an eager curiosity about how the web connects communities and automates complex operations. Starting with foundational web standards—semantic HTML5, modern responsive CSS3, and vanilla JavaScript—I built a solid grounding before progressing into full-stack ecosystems.
+            </p>
+            <p>
+              Over the course of my development journey, I have engineered full-scale web applications using the <strong>MERN Stack (MongoDB, Express.js, React.js, Node.js)</strong>, high-performance server architectures in <strong>PHP with MySQL</strong>, and object-oriented systems with <strong>Core Java</strong>.
+            </p>
+            <p>
+              My key milestone applications solve practical real-world problems:
+            </p>
+            <ul class="journey-list">
+              <li>
+                <strong>Blood Bank System:</strong> Urgent real-time blood group matching and inventory tracking for hospitals.
+              </li>
+              <li>
+                <strong>MERN Library System:</strong> Automated book cataloging, membership tracking, and overdue penalty computation.
+              </li>
+              <li>
+                <strong>PHP Hotel Management:</strong> Visual room reservations, guest check-in/out workflows, and automated billing invoices.
+              </li>
+            </ul>
+            <p style="margin-top: 16px;">
+              Every web application I construct strictly adheres to a mobile-first responsive methodology, guaranteeing smooth navigation across smartphones, tablets, laptops, and large desktop screens.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Core Technical Focus</h3>
+            <div class="principles-list">
+              <div class="principle-item">
+                <h4 class="principle-title">1. Mobile-First Responsive Design</h4>
+                <p class="principle-desc">
+                  Structuring every interface using fluid grids, Flexbox, scalable typography, and precise media queries so content adapts flawlessly across any viewport.
+                </p>
+              </div>
+
+              <div class="principle-item">
+                <h4 class="principle-title">2. Clean & Semantic Architecture</h4>
+                <p class="principle-desc">
+                  Writing clean, accessible semantic HTML5 tags with WCAG compliance, modular CSS structures, and maintainable vanilla JavaScript.
+                </p>
+              </div>
+
+              <div class="principle-item">
+                <h4 class="principle-title">3. Database Integrity & Normalization</h4>
+                <p class="principle-desc">
+                  Designing robust relational database schemas in MySQL (1NF–3NF, ACID transactions) alongside high-throughput NoSQL document modeling in MongoDB.
+                </p>
+              </div>
+
+              <div class="principle-item">
+                <h4 class="principle-title">4. Server-Side Reliability & Security</h4>
+                <p class="principle-desc">
+                  Implementing secure input sanitization, PDO prepared statements in PHP, and RESTful API endpoints in Node/Express to protect against vulnerabilities.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Core Technical Skills</p>
+          <h2 class="section-title">Skills & Technologies</h2>
+          <p class="section-desc">
+            Technical proficiencies across frontend engineering, modern full-stack web stacks, backend development, and database management.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div>
+              <div class="skill-header">
+                <h3 class="skill-name">HTML & HTML5</h3>
+                <span class="skill-level">Expert</span>
+              </div>
+              <p class="skill-desc">
+                Semantic structure, modern form elements, accessible markup (ARIA), SEO best practices, and responsive viewport configurations.
+              </p>
+            </div>
+            <div>
+              <p class="skill-concepts-label">Core Concepts</p>
+              <p class="skill-concepts-unboxed">Semantic Tags · Form Validation · ARIA Accessibility · SEO Structure</p>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div>
+              <div class="skill-header">
+                <h3 class="skill-name">CSS & CSS3</h3>
+                <span class="skill-level">Expert</span>
+              </div>
+              <p class="skill-desc">
+                Mobile-first responsive web design, Flexbox, CSS Grid layouts, media queries, CSS variables, and fluid typography.
+              </p>
+            </div>
+            <div>
+              <p class="skill-concepts-label">Core Concepts</p>
+              <p class="skill-concepts-unboxed">Flexbox & Grid · Media Queries · Custom Properties · Responsive Layouts</p>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div>
+              <div class="skill-header">
+                <h3 class="skill-name">JavaScript (ES6+)</h3>
+                <span class="skill-level">Advanced</span>
+              </div>
+              <p class="skill-desc">
+                DOM manipulation, event handling, asynchronous programming (Promises, async/await), Fetch API, and modular architecture.
+              </p>
+            </div>
+            <div>
+              <p class="skill-concepts-label">Core Concepts</p>
+              <p class="skill-concepts-unboxed">DOM API · Async / Await · Event Handling · REST Integration</p>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div>
+              <div class="skill-header">
+                <h3 class="skill-name">Java</h3>
+                <span class="skill-level">Advanced</span>
+              </div>
+              <p class="skill-desc">
+                Core Java, Object-Oriented Programming (OOP) concepts, Collections Framework, Exception Handling, and JDBC connectivity.
+              </p>
+            </div>
+            <div>
+              <p class="skill-concepts-label">Core Concepts</p>
+              <p class="skill-concepts-unboxed">OOP Principles · Collections · Exception Handling · JDBC Connectivity</p>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div>
+              <div class="skill-header">
+                <h3 class="skill-name">MERN Stack</h3>
+                <span class="skill-level">Advanced</span>
+              </div>
+              <p class="skill-desc">
+                MongoDB, Express.js, React.js, and Node.js for developing dynamic, unified full-stack single-page web applications.
+              </p>
+            </div>
+            <div>
+              <p class="skill-concepts-label">Core Concepts</p>
+              <p class="skill-concepts-unboxed">React Components · Express Routing · Node.js Server · MongoDB NoSQL</p>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div>
+              <div class="skill-header">
+                <h3 class="skill-name">PHP</h3>
+                <span class="skill-level">Advanced</span>
+              </div>
+              <p class="skill-desc">
+                Server-side web scripting, session handling, secure authentication, form processing, and PDO database integration.
+              </p>
+            </div>
+            <div>
+              <p class="skill-concepts-label">Core Concepts</p>
+              <p class="skill-concepts-unboxed">Server Scripting · PDO Database · Session Handling · CRUD Operations</p>
+            </div>
+          </div>
+
+          <div class="skill-card" style="grid-column: 1 / -1;">
+            <div>
+              <div class="skill-header">
+                <h3 class="skill-name">Database Management (MySQL & MongoDB)</h3>
+                <span class="skill-level">Advanced</span>
+              </div>
+              <p class="skill-desc">
+                Relational schema design, normalization, joins, indexing, and ACID compliance in MySQL alongside high-speed document modeling, aggregation, and indexing in MongoDB.
+              </p>
+            </div>
+            <div>
+              <p class="skill-concepts-label">Core Concepts</p>
+              <p class="skill-concepts-unboxed">Relational Normalization · Complex Joins · Document Modeling · Indexing · Query Optimization</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="career-banner">
+          <div>
+            <p class="career-banner-kicker">Professional Opportunities</p>
+            <h3>Interested in discussing potential roles or projects?</h3>
+            <p>
+              I am actively seeking software engineering roles, web development positions, and full-stack projects where I can apply my MERN, Java, PHP, and database skills.
+            </p>
+          </div>
+          <div class="career-banner-actions">
+            <a href="tel:8780826262" class="btn btn-outline" style="background-color: #ffffff; color: var(--text-primary);">
+              Call: +91 8780826262
+            </a>
+            <a href="mailto:nikul4470@gmail.com?subject=Job%20Opportunity%20for%20Surani%20Nikulbhai" class="btn btn-primary">
+              Send Email Proposal &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Production-Ready Applications</p>
+          <h2 class="section-title">Projects</h2>
+          <p class="section-desc">
+            All applications are engineered with clean responsive layouts, verified across mobile smartphones, tablets, and desktop workstations.
+          </p>
+        </div>
+
+        <div class="projects-stack">
+          <!-- Project 1: Blood Bank -->
+          <article class="project-item">
+            <div class="project-top-bar">
+              <div>
+                <p class="project-index">01. Healthcare Emergency System</p>
+                <h3 class="project-heading">Blood Bank Management System</h3>
+              </div>
+              <span class="responsive-pill-tag">
+                📱 100% Mobile & Desktop Responsive
+              </span>
+            </div>
+
+            <div class="project-body-grid">
+              <div class="project-image-box">
+                <div class="browser-bar">
+                  <div class="browser-dots">
+                    <span class="dot-red"></span>
+                    <span class="dot-yellow"></span>
+                    <span class="dot-green"></span>
+                  </div>
+                  <span>blood-bank-system.local</span>
+                  <span>Responsive UI</span>
+                </div>
+                <img
+                  src="blood_bank.jpg"
+                  alt="Blood Bank Management System Dashboard Mockup"
+                  class="project-img"
+                  loading="lazy"
+                >
+              </div>
+
+              <div class="project-content">
+                <p class="project-desc">
+                  An emergency-ready healthcare web platform connecting voluntary blood donors with hospitals and critical patients in real time. Features an instant donor search matrix and inventory monitoring.
+                </p>
+
+                <div>
+                  <p class="features-label">Key Features</p>
+                  <ul class="features-list">
+                    <li>Blood group compatibility engine (A+, A-, B+, B-, AB+, AB-, O+, O-)</li>
+                    <li>Real-time blood component inventory tracker with low-stock alerts</li>
+                    <li>Instant donor registry search by blood group and city proximity</li>
+                    <li>Urgent hospital requisition dispatch and donor notifications</li>
+                    <li>Adaptive responsive design for field workers on mobile screens</li>
+                  </ul>
+                </div>
+
+                <div class="project-architecture">
+                  <strong>Architecture & Tech Stack:</strong>
+                  Modular 3-tier system built with HTML5, CSS3 (Grid/Flexbox), JavaScript, PHP server backend, and MySQL relational database.
+                </div>
+
+                <div class="project-tags-unboxed">
+                  HTML5 · CSS3 · JavaScript · PHP · MySQL · Responsive Design
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Library Management -->
+          <article class="project-item">
+            <div class="project-top-bar">
+              <div>
+                <p class="project-index">02. Modern Enterprise System</p>
+                <h3 class="project-heading">Library Management System (MERN Stack)</h3>
+              </div>
+              <span class="responsive-pill-tag">
+                📱 100% Mobile & Desktop Responsive
+              </span>
+            </div>
+
+            <div class="project-body-grid">
+              <div class="project-image-box">
+                <div class="browser-bar">
+                  <div class="browser-dots">
+                    <span class="dot-red"></span>
+                    <span class="dot-yellow"></span>
+                    <span class="dot-green"></span>
+                  </div>
+                  <span>library-mern-app.local</span>
+                  <span>Responsive UI</span>
+                </div>
+                <img
+                  src="library_mern.jpg"
+                  alt="Library Management System MERN Stack Mockup"
+                  class="project-img"
+                  loading="lazy"
+                >
+              </div>
+
+              <div class="project-content">
+                <p class="project-desc">
+                  A modern, full-stack web application engineered using the MERN stack for digital cataloging, member checkouts, automated return tracking, and overdue fine administration.
+                </p>
+
+                <div>
+                  <p class="features-label">Key Features</p>
+                  <ul class="features-list">
+                    <li>Dynamic digital book catalog with real-time search and genre filtering</li>
+                    <li>Automated issue and return tracking with fine calculations</li>
+                    <li>Student and faculty member accounts with borrowing limit enforcements</li>
+                    <li>RESTful API architecture with JWT authentication & secure routes</li>
+                    <li>Visual lending dashboard with borrowing statistics and charts</li>
+                  </ul>
+                </div>
+
+                <div class="project-architecture">
+                  <strong>Architecture & Tech Stack:</strong>
+                  Decoupled client-server architecture with React SPA frontend, Node.js & Express.js REST API layer, and MongoDB NoSQL document database.
+                </div>
+
+                <div class="project-tags-unboxed">
+                  MongoDB · Express.js · React.js · Node.js · RESTful API · Responsive
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Hotel Management -->
+          <article class="project-item">
+            <div class="project-top-bar">
+              <div>
+                <p class="project-index">03. Commercial & Hospitality System</p>
+                <h3 class="project-heading">Hotel Management System (PHP & MySQL)</h3>
+              </div>
+              <span class="responsive-pill-tag">
+                📱 100% Mobile & Desktop Responsive
+              </span>
+            </div>
+
+            <div class="project-body-grid">
+              <div class="project-image-box">
+                <div class="browser-bar">
+                  <div class="browser-dots">
+                    <span class="dot-red"></span>
+                    <span class="dot-yellow"></span>
+                    <span class="dot-green"></span>
+                  </div>
+                  <span>hotel-system-php.local</span>
+                  <span>Responsive UI</span>
+                </div>
+                <img
+                  src="hotel_php.jpg"
+                  alt="Hotel Management System PHP Dashboard Mockup"
+                  class="project-img"
+                  loading="lazy"
+                >
+              </div>
+
+              <div class="project-content">
+                <p class="project-desc">
+                  A hospitality management web platform handling room reservations, front-desk guest check-in/out workflows, housekeeping status updates, and automated guest billing.
+                </p>
+
+                <div>
+                  <p class="features-label">Key Features</p>
+                  <ul class="features-list">
+                    <li>Visual room reservation matrix (Deluxe Suite, Standard, Executive)</li>
+                    <li>Front-desk check-in and checkout tracker with stay duration logs</li>
+                    <li>Automated invoice generation and payment receipt calculation</li>
+                    <li>Housekeeping and room maintenance status management</li>
+                    <li>Adaptive layout optimized for desktop front desks and mobile tablets</li>
+                  </ul>
+                </div>
+
+                <div class="project-architecture">
+                  <strong>Architecture & Tech Stack:</strong>
+                  Model-View-Controller (MVC) pattern in PHP with MySQL relational schema, prepared statements for SQL injection prevention, and responsive CSS UI.
+                </div>
+
+                <div class="project-tags-unboxed">
+                  PHP · MySQL · JavaScript · CSS3 · MVC Architecture · Responsive
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Potential Professional Opportunities</p>
+          <h2 class="section-title">Contact Information</h2>
+          <p class="section-desc">
+            Let's connect! I am available for full-time software engineering roles, web development positions, and technical collaborations.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-details-box">
+            <h3 class="card-title">Direct Contact Information</h3>
+            <p class="contact-intro">
+              Reach out directly via phone, WhatsApp, email, or visit my location:
+            </p>
+
+            <div class="contact-info-list">
+              <div class="contact-info-item">
+                <span class="info-label">Full Name</span>
+                <span class="info-value">Surani Nikulbhai M.</span>
+              </div>
+
+              <div class="contact-info-item">
+                <span class="info-label">Mobile Number</span>
+                <span class="info-value">
+                  <a href="tel:8780826262">+91 8780826262</a>
+                </span>
+              </div>
+
+              <div class="contact-info-item">
+                <span class="info-label">Email Address</span>
+                <span class="info-value">
+                  <a href="mailto:nikul4470@gmail.com">nikul4470@gmail.com</a>
+                </span>
+              </div>
+
+              <div class="contact-info-item">
+                <span class="info-label">Location Address</span>
+                <span class="info-value">
+                  Thordi, Bhavnagar, Gujarat - 364110, India
+                </span>
+              </div>
+            </div>
+
+            <div class="contact-cta-buttons">
+              <a href="tel:8780826262" class="btn btn-primary">
+                Call: 8780826262
+              </a>
+              <a href="https://wa.me/918780826262" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                WhatsApp Message
+              </a>
+              <a href="mailto:nikul4470@gmail.com" class="btn btn-outline">
+                Send Email
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-form-box">
+            <h3 class="card-title">Send a Direct Message</h3>
+            <form id="contactForm" class="contact-form">
+              <div class="form-group">
+                <label for="senderName" class="form-label">Your Full Name *</label>
+                <input
+                  type="text"
+                  id="senderName"
+                  name="name"
+                  class="form-input"
+                  placeholder="e.g. John Doe / Hiring Manager"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="senderEmail" class="form-label">Email Address *</label>
+                <input
+                  type="email"
+                  id="senderEmail"
+                  name="email"
+                  class="form-input"
+                  placeholder="e.g. manager@company.com"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="senderPhone" class="form-label">Phone Number (Optional)</label>
+                <input
+                  type="tel"
+                  id="senderPhone"
+                  name="phone"
+                  class="form-input"
+                  placeholder="e.g. +91 98765 43210"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="senderSubject" class="form-label">Subject / Opportunity *</label>
+                <input
+                  type="text"
+                  id="senderSubject"
+                  name="subject"
+                  class="form-input"
+                  placeholder="Full-Stack Developer Role / Project Proposal"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="senderMessage" class="form-label">Your Message *</label>
+                <textarea
+                  id="senderMessage"
+                  name="message"
+                  class="form-textarea"
+                  placeholder="Hello Nikulbhai, we would like to invite you for an interview regarding..."
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Submit Inquiry
+              </button>
+
+              <div class="form-status" id="formStatus"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; <span id="currentYear"></span> Surani Nikulbhai M. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="mailto:nikul4470@gmail.com">nikul4470@gmail.com</a>
+        <span class="meta-dot">·</span>
+        <a href="tel:8780826262">+91 8780826262</a>
+        <span class="meta-dot">·</span>
+        <span>Thordi, Bhavnagar, Gujarat - 364110</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vanilla JavaScript (Self-Contained) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Dynamic Year in Footer
+      const yearElement = document.getElementById('currentYear');
+      if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+      }
+
+      // 2. Mobile Navigation Hamburger Menu
+      const menuToggle = document.getElementById('menuToggle');
+      const navMenu = document.getElementById('navMenu');
+
+      if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+          navMenu.classList.toggle('active');
+        });
+
+        const navLinks = navMenu.querySelectorAll('.nav-link');
+        navLinks.forEach((link) => {
+          link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+          });
+        });
+      }
+
+      // 3. Active Nav Link on Scroll (Scroll Spy)
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-menu .nav-link');
+
+      const onScroll = () => {
+        const scrollPos = window.scrollY + 120;
+        sections.forEach((section) => {
+          const top = section.offsetTop;
+          const height = section.offsetHeight;
+          const id = section.getAttribute('id');
+
+          if (scrollPos >= top && scrollPos < top + height) {
+            navLinks.forEach((link) => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // 4. Contact Form Validation & Submission
+      const contactForm = document.getElementById('contactForm');
+      const formStatus = document.getElementById('formStatus');
+
+      if (contactForm && formStatus) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const name = document.getElementById('senderName')?.value.trim();
+          const email = document.getElementById('senderEmail')?.value.trim();
+          const phone = document.getElementById('senderPhone')?.value.trim();
+          const subject = document.getElementById('senderSubject')?.value.trim();
+          const message = document.getElementById('senderMessage')?.value.trim();
+
+          if (!name || !email || !message) {
+            formStatus.textContent = 'Please fill out all required fields (Name, Email, and Message).';
+            formStatus.className = 'form-status error';
+            return;
+          }
+
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            formStatus.textContent = 'Please provide a valid email address.';
+            formStatus.className = 'form-status error';
+            return;
+          }
+
+          formStatus.textContent = 'Thank you! Opening your email client to send your message to nikul4470@gmail.com...';
+          formStatus.className = 'form-status success';
+
+          const emailBody = `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\n\nMessage:\n${message}`;
+          const mailtoUrl = `mailto:nikul4470@gmail.com?subject=${encodeURIComponent(subject || 'Portfolio Inquiry / Internship Opportunity')}&body=${encodeURIComponent(emailBody)}`;
+
+          setTimeout(() => {
+            window.location.href = mailtoUrl;
+          }, 700);
+
+          contactForm.reset();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
